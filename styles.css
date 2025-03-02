@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    color: #fff;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  .ocean-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f766e, #38bdf8, #fefcbf);
+    background-size: 300% 300%;
+    animation: oceanFlow 12s ease infinite;
+    z-index: -1;
+  }
+  
+  .wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%2306b6d4" fill-opacity="0.7" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,133.3C672,117,768,139,864,149.3C960,160,1056,160,1152,144C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"%3E%3C/path%3E%3C/svg%3E') repeat-x;
+    animation: waveMove 10s linear infinite;
+  }
+  
+  .bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"%3E%3Cg opacity="0.5"%3E%3Ccircle cx="100" cy="700" r="10" fill="%23fff"%3E%3Canimate attributeName="cy" from="700" to="0" dur="5s" repeatCount="indefinite"/%3E%3C/circle%3E%3Ccircle cx="300" cy="600" r="15" fill="%23fefcbf"%3E%3Canimate attributeName="cy" from="600" to="0" dur="6s" repeatCount="indefinite"/%3E%3C/circle%3E%3Ccircle cx="500" cy="800" r="8" fill="%2338bdf8"%3E%3Canimate attributeName="cy" from="800" to="0" dur="4s" repeatCount="indefinite"/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E') repeat;
+    animation: bubbleRise 20s linear infinite;
+  }
+  
+  header {
+    background: rgba(15, 118, 110, 0.9);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav h1 {
+    font-family: 'Seaweed Script', cursive;
+    font-size: 2.5rem;
+    color: #fefcbf;
+    text-shadow: 0 0 10px #38bdf8;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  nav a:hover {
+    color: #38bdf8;
+    text-shadow: 0 0 5px #38bdf8;
+  }
+  
+  #hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
+  
+  .hero-content {
+    max-width: 50%;
+    animation: floatIn 2s ease-out;
+  }
+  
+  .hero-content h2 {
+    font-family: 'Seaweed Script', cursive;
+    font-size: 4.5rem;
+    color: #fefcbf;
+    text-shadow: 0 0 15px #38bdf8;
+  }
+  
+  .hero-content p {
+    font-size: 1.4rem;
+    color: #e5e7eb;
+    margin: 1rem 0 2rem;
+  }
+  
+  .cta-btn {
+    background: #38bdf8;
+    color: #0f766e;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px #38bdf8;
+  }
+  
+  .cta-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #38bdf8;
+    background: #fefcbf;
+  }
+  
+  .hero-image {
+    animation: floatInRight 2s ease-out;
+  }
+  
+  #profile-img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid #38bdf8;
+    box-shadow: 0 0 20px #38bdf8;
+    transition: transform 0.5s;
+  }
+  
+  #profile-img.ripple {
+    animation: rippleEffect 1s ease-out;
+  }
+  
+  section {
+    padding: 6rem 5%;
+    position: relative;
+  }
+  
+  h3 {
+    font-family: 'Seaweed Script', cursive;
+    font-size: 3.5rem;
+    color: #fefcbf;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 10px #38bdf8;
+  }
+  
+  #about p {
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #e5e7eb;
+    background: rgba(15, 118, 110, 0.7);
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .skill-card {
+    background: rgba(56, 189, 248, 0.8);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    animation: floatInUp 0.5s ease-out var(--delay);
+    transition: transform 0.3s, height 0.3s;
+    cursor: pointer;
+  }
+  
+  .skill-card.expanded {
+    transform: scale(1.05);
+    height: auto;
+  }
+  
+  .skill-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .skill-card p {
+    font-size: 1rem;
+  }
+  
+  #journey {
+    padding: 6rem 5%;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: linear-gradient(#fefcbf, #38bdf8);
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #38bdf8;
+  }
+  
+  .timeline-item {
+    padding: 2rem 0;
+    position: relative;
+    width: 50%;
+    animation: floatInUp 1s ease-out;
+  }
+  
+  .timeline-item.left {
+    left: 0;
+  }
+  
+  .timeline-item.right {
+    left: 50%;
+  }
+  
+  .timeline-item .content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    color: #0f766e;
+    transition: transform 0.3s;
+  }
+  
+  .timeline-item:hover .content {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px #38bdf8;
+  }
+  
+  .timeline-item.left .content {
+    margin-right: 3rem;
+  }
+  
+  .timeline-item.right .content {
+    margin-left: 3rem;
+  }
+  
+  .timeline-item .content .icon {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    background: #fefcbf;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 0 15px #38bdf8;
+  }
+  
+  .timeline-item .content h4 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  #contact {
+    text-align: center;
+  }
+  
+  #contact p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+    background: rgba(15, 118, 110, 0.7);
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  footer {
+    background: rgba(15, 118, 110, 0.9);
+    color: #fff;
+    text-align: center;
+    padding: 2rem; 
+    font-size: 1.2rem;
+    text-shadow: 0 0 5px #38bdf8;
+  }
+  
+  @keyframes oceanFlow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  @keyframes waveMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 1440px 0; }
+  }
+  
+  @keyframes bubbleRise {
+    0% { background-position: 0 800px; }
+    100% { background-position: 0 0; }
+  }
+  
+  @keyframes floatIn {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes floatInRight {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes floatInUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes rippleEffect {
+    0% { transform: scale(1); box-shadow: 0 0 20px #38bdf8; }
+    50% { transform: scale(1.05); box-shadow: 0 0 40px #38bdf8; }
+    100% { transform: scale(1); box-shadow: 0 0 20px #38bdf8; }
+  }
+  
+  @media (max-width: 768px) {
+    #hero {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 6rem;
+    }
+  
+    .hero-content {
+      max-width: 100%;
+    }
+  
+    .hero-content h2 {
+      font-size: 3rem;
+    }
+  
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .timeline::before {
+      left: 20px;
+    }
+  
+    .timeline-item {
+      width: 100%;
+      left: 0 !important;
+    }
+  
+    .timeline-item .content {
+      margin-left: 40px !important;
+      margin-right: 0 !important;
+    }
+  }
